@@ -1,10 +1,10 @@
 <svg width="100%" height="100%" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g transform="matrix(2,0,0,2,0,0)">
         <g transform="matrix(0.707107,-0.707107,0.559704,0.559704,-65.2236,215.17)">
-            <rect x="59" y="97" width="28" height="299" style="fill:rgb(0, 0, 0);"/>
+            <rect x="59" y="97" width="28" height="299" style="fill:rgb(255, 255, 255);"/>
         </g>
         <g transform="matrix(0.707107,0.707107,-0.899414,0.899414,494.938,-24.0559)">
-            <rect x="59" y="97" width="28" height="299" style="fill:rgb(0, 0, 0);"/>
+            <rect x="59" y="97" width="28" height="299" style="fill:rgb(255, 255, 255);"/>
         </g>
     </g>
 </svg>

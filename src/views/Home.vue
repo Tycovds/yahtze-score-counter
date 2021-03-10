@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <button @click="reset" >Reset State</button>
+    <reset-state />
     <half-wrapper name="Bovenste Helft">
       <ul>
         <num-input
@@ -144,7 +144,7 @@
         </li>
         <li>
           <span>Totaal boven</span>
-          <span>{{ this.$store.state.topTotal }}</span>
+          <span>{{ this.$store.state.topTotal + this.$store.state.bonus  }}</span>
         </li>
         <li>
           <span>Totaal generaal</span>
@@ -158,17 +158,13 @@
 <script>
 import HalfWrapper from "../components/HalfWrapper.vue";
 import NumInput from "../components/NumberInput.vue";
+import  ResetState from '../components/Reset.vue';
 export default {
   name: "Home",
   components: {
     "half-wrapper": HalfWrapper,
     "num-input": NumInput,
-  },
-
-  methods: {
-    reset(){
-      this.$store.commit('resetState')
-    }
+    "reset-state": ResetState
   },
 };
 </script>
@@ -178,5 +174,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 </style>

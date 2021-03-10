@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -9,7 +10,8 @@ export default new Vuex.Store({
     updateScore(state, payload) {
       const rename = (payload.half == 'top') ? 'top_scores' : 'bottom_scores';
       if (payload.score == false) {
-        state[rename][payload.key] = 'X';
+        state[rename][payload.key] = 'empty';
+        
       } else {
         state[rename][payload.key] = Number(payload.score);
       }
@@ -34,7 +36,7 @@ function checkState(state) {
 
   (state.topTotal >= 63) ? state.bonus = 35 : state.bonus = 0;
   
-  const general_total = state.topTotal + state.bottomTotal;
+  const general_total = state.topTotal + state.bottomTotal + state.bonus;
   state.generalTotal = general_total;
 }
 

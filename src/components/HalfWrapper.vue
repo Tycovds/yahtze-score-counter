@@ -20,8 +20,9 @@ export default {
   max-width: 500px;
   width: 100%;
   h1 {
-    margin: 0.5rem 0;
+    margin-bottom: .5em;
     color: #fff;
+    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .3);
   }
   .list-wrapper {
     ul {
@@ -36,8 +37,8 @@ export default {
         margin: 0.2em 0;
         background-color: #fff;
         border-radius: 5px;
-        // height: 1em;
-      }
+        box-shadow: 2px 2px 7px rgba($color: #000000, $alpha: .3);
+}
     }
   }
 }

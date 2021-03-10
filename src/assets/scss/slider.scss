@@ -1,5 +1,6 @@
+@use './variables' as v;
 .slider {
-    margin-right: .5em !important;
+    margin: 0 .5em !important;
   }
   input[type=range].slider {
   width: 100%;
@@ -21,7 +22,7 @@ input[type=range].slider::-webkit-slider-thumb {
   margin-top: -12.365px;
   width: 32px;
   height: 32px;
-  background: #000000;
+  background: v.$btn-color;
   border: 0;
   border-radius: 10px;
   cursor: pointer;
@@ -40,7 +41,7 @@ input[type=range].slider::-moz-range-track {
 input[type=range].slider::-moz-range-thumb {
   width: 32px;
   height: 32px;
-  background: #000000;
+  background: v.$btn-color;
   border: 0;
   border-radius: 10px;
   cursor: pointer;
@@ -65,7 +66,7 @@ input[type=range].slider::-ms-fill-upper {
 input[type=range].slider::-ms-thumb {
   width: 32px;
   height: 32px;
-  background: #000000;
+  background: v.$btn-color;
   border: 0;
   border-radius: 10px;
   cursor: pointer;

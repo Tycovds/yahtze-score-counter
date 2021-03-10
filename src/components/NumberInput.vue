@@ -1,10 +1,11 @@
 <template>
   <li>
     <span> {{ config.name }} </span>
-        <!-- editing -->
+    <!-- editing -->
     <div class="flex" v-if="editing">
-      <!-- <button class="btn" @click="num = false">Cross</button> -->
-      <input class="slider"
+      <!-- <button class="btn cross" @click="num = false">X</button> -->
+      <input
+        class="slider"
         type="range"
         min="0"
         :max="config.max"
@@ -50,7 +51,20 @@ export default {
       get() {
         const rename =
           this.config.half == "top" ? "top_scores" : "bottom_scores";
-        return this.$store.state[rename][this.config.key];
+        const key = this.$store.state[rename][this.config.key];
+        // console.log(key);
+          if (key == 0) {
+            return " ";
+          }
+        if (key == 'empty') {
+          // console.log(key);
+          // console.log(this.$store.state[rename])
+          return "0";
+        }
+        if (typeof key == "number") {
+          return key;
+        }
+        return 'error';
       },
       set(num) {
         this.$store.commit("updateScore", {
@@ -64,25 +78,31 @@ export default {
 };
 </script>
 <style lang="scss">
-@use '../assets/scss/slider.scss';
+@use '../assets/scss/slider';
+@use '../assets/scss/variables' as v;
 .flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 2em;
   .num {
-    padding: 0 0 0 .5em;
+    padding: 0 0 0 0.5em;
   }
-  
 
   .btn {
-    background-color: #ddd;
+    background-color: v.$btn-color;
     outline: none;
     border: none;
     width: auto;
     height: 100%;
     border-radius: 5px;
+    cursor: pointer;
+      box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.4);
   }
- 
+  .cross {
+    padding: 0 .5em;
+    font-weight: bold;
+    font-size: 1em;
+  }
 }
 </style>
