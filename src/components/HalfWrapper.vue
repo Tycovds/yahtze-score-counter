@@ -20,9 +20,9 @@ export default {
   max-width: 500px;
   width: 100%;
   h1 {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     color: #fff;
-    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .3);
+    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.3);
   }
   .list-wrapper {
     ul {
@@ -32,13 +32,13 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: .3em .5em;
+        padding: 0.3em 0.5em;
         font-size: 21px;
         margin: 0.2em 0;
         background-color: #fff;
         border-radius: 5px;
-        box-shadow: 2px 2px 7px rgba($color: #000000, $alpha: .3);
-}
+        box-shadow: 2px 2px 7px rgba($color: #000000, $alpha: 0.3);
+      }
     }
   }
 }
