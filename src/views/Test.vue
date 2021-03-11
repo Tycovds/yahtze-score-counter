@@ -1,81 +1,69 @@
 <template>
   <div class="container">
+    <reset />
     <ul class="scores">
       <!-- top scores -->
       <h1>Bovenste Helft</h1>
       <test-input
         v-for="(val, key) in topScores"
         :key="key"
-        :data="{val, key, half: 'top'}"
+        :data="{ val, key, half: 'top' }"
         class="input-wrapper"
       />
-       <h1>Onderste Helft</h1>
+      <li>
+        <span>Total Top:</span> <span>{{ totalTop }}</span>
+      </li>
+      <h1>Onderste Helft</h1>
       <test-input
         v-for="(val, key) in bottomScores"
         :key="key"
-        :data="{val, key, half: 'bottom'}"
+        :data="{ val, key, half: 'bottom' }"
         class="input-wrapper"
       />
 
-      <!-- <li>Total Bottom: {{ totalBottom }}</li> -->
+      <li>
+        <span>Total Bottom:</span> <span>{{ totalBottom }}</span>
+      </li>
+      <h1>Generaal totaal</h1>
+       <li>
+        <span>Total Bottom:</span> <span>{{ totalBottom }}</span>
+      </li>
+       <li>
+        <span>Total Top:</span> <span>{{ totalTop }}</span>
+      </li>
+       <li>
+        <span>Totaal:</span> <span>{{ totalTop + totalBottom }}</span>
+      </li>
+
     </ul>
   </div>
 </template>
 
 <script>
+import TestInput from "../components/TestInput.vue";
+import Reset from "../components/Reset.vue";
 export default {
   components: {
-    'test-input': () => import('../components/TestInput.vue')
+    "test-input": TestInput,
+    Reset,
   },
   data() {
     return {
       editing: false,
-      test_scores: {
-        top: {
-          one: { title: "Enen", val: 0, step: 1, max: 5 },
-          two: { title: "Tweeën", val: 0, step: 2, max: 10 },
-          three: { title: "Drieën", val: 0, step: 3, max: 15 },
-          four: { title: "Vieren", val: 0, step: 4, max: 20 },
-          five: { title: "Vijven", val: 0, step: 5, max: 25 },
-          six: { title: "Zessen", val: 0, step: 6, max: 30 },
-        },
-        bottom: {
-          three_of_a_kind: { title: "T", val: 0, step: 1, max: 30 },
-          carre: { title: "Carre", val: 0, step: 1, max: 30 },
-          full_house: { title: "F", val: 0, step: 25, max: 25 },
-          kleine_straat: { title: "K", val: 0, step: 30, max: 30 },
-          grote_straat: { title: "G", val: 0, step: 40, max: 40 },
-          yahtzee: { title: "Y", val: 0, step: 50, max: 50 },
-          chance: { title: "C", val: 0, step: 1, max: 30 },
-        },
-      },
-      bonus: 0,
-      topTotal: 0,
-      bottom_scores: {
-        three_of_a_kind: 0,
-        carre: 0,
-        full_house: 0,
-        kleine_straat: 0,
-        grote_straat: 0,
-        yahtzee: 0,
-        chance: 0,
-      },
-      bottomTotal: 0,
-      generalTotal: 0,
     };
   },
   computed: {
-    topScores(){
-      return this.$store.state.scores.top
+    topScores() {
+      return this.$store.state.scores.top;
     },
-    bottomScores(){
-      return this.$store.state.scores.bottom
+    bottomScores() {
+      return this.$store.state.scores.bottom;
     },
     totalTop() {
-      return this.calculateTotal(this.test_scores.top);
+      return this.calculateTotal(this.$store.state.scores.top);
     },
     totalBottom() {
-      return this.calculateTotal(this.test_scores.bottom);
+      return this.calculateTotal(this.$store.state.scores.bottom);
     },
   },
   methods: {
@@ -112,7 +100,9 @@ export default {
   }
   ul {
     list-style: none;
-    
+    li {
+      @include v.li-tag;
+    }
   }
 }
 </style>

@@ -7,13 +7,16 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: generateDefaultState(),
   mutations: {
-    updateScore(state, payload){
+    updateScore(state, payload) {
       state.scores[payload.half][payload.key].val = payload.score;
+    },
+    resetState(state) {
+      Object.assign(state, generateDefaultState())
     }
   },
 })
 
-function generateDefaultState(){
+function generateDefaultState() {
   return {
     scores: {
       top: {
@@ -25,13 +28,13 @@ function generateDefaultState(){
         six: { title: "Zessen", val: 0, step: 6, max: 30 },
       },
       bottom: {
-        three_of_a_kind: { title: "T", val: 0, step: 1, max: 30 },
+        three_of_a_kind: { title: "Three of a kind", val: 0, step: 1, max: 30 },
         carre: { title: "Carre", val: 0, step: 1, max: 30 },
-        full_house: { title: "F", val: 0, step: 25, max: 25 },
-        kleine_straat: { title: "K", val: 0, step: 30, max: 30 },
-        grote_straat: { title: "G", val: 0, step: 40, max: 40 },
-        yahtzee: { title: "Y", val: 0, step: 50, max: 50 },
-        chance: { title: "C", val: 0, step: 1, max: 30 },
+        full_house: { title: "Full house", val: 0, step: 25, max: 25 },
+        kleine_straat: { title: "Kleine straat", val: 0, step: 30, max: 30 },
+        grote_straat: { title: "Grot straat", val: 0, step: 40, max: 40 },
+        yahtzee: { title: "Yahtzee", val: 0, step: 50, max: 50 },
+        chance: { title: "Chance", val: 0, step: 1, max: 30 },
       },
     },
   }
@@ -43,7 +46,7 @@ function generateDefaultState(){
 //       const rename = (payload.half == 'top') ? 'top_scores' : 'bottom_scores';
 //       if (payload.score == false) {
 //         state[rename][payload.key] = false;
-        
+
 //       } else {
 //         state[rename][payload.key] = Number(payload.score);
 //       }
@@ -59,12 +62,12 @@ function generateDefaultState(){
 // function checkState(state) {
 //   // calculate top score total
 //   calculateTotal(state, state.top_scores, 'topTotal');
-  
+
 //   // calculate bottom score total
 //   calculateTotal(state, state.bottom_scores, 'bottomTotal');
 
 //   (state.topTotal >= 63) ? state.bonus = 35 : state.bonus = 0;
-  
+
 //   const general_total = state.topTotal + state.bottomTotal + state.bonus;
 //   state.generalTotal = general_total;
 // }
