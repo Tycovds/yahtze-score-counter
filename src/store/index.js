@@ -10,14 +10,11 @@ export default new Vuex.Store({
     updateScore(state, payload) {
       const rename = (payload.half == 'top') ? 'top_scores' : 'bottom_scores';
       if (payload.score == false) {
-        state[rename][payload.key] = 'empty';
+        state[rename][payload.key] = false;
         
       } else {
         state[rename][payload.key] = Number(payload.score);
       }
-      // Object.entries(state).forEach(([key, val]) => {
-      //   console.log(key, val)
-      // });
       checkState(state);
     },
     resetState(state){

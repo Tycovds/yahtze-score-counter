@@ -52,13 +52,12 @@ export default {
         const rename =
           this.config.half == "top" ? "top_scores" : "bottom_scores";
         const key = this.$store.state[rename][this.config.key];
-        // console.log(key);
-          if (key == 0) {
-            return " ";
+     
+          if (key === false) {
+            return "X";
           }
         if (key == 'empty') {
-          // console.log(key);
-          // console.log(this.$store.state[rename])
+    
           return "0";
         }
         if (typeof key == "number") {
@@ -87,6 +86,8 @@ export default {
   height: 2em;
   .num {
     padding: 0 0 0 0.5em;
+    min-width: 4ch;
+    text-align: end;
   }
 
   .btn {
