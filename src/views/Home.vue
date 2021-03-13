@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <reset />
+    <nav-bar />
+    
     <ul class="scores">
       <!-- top scores -->
       <h1>Bovenste Helft</h1>
@@ -29,7 +30,7 @@
 
      
       <!-- score totaal  generaal -->
-      <h1>Generaal totaal</h1>
+      <h1>Totaal </h1>
        <li>
         <span>Totaal onderste helft</span> <span>{{ totalBottom }}</span>
       </li>
@@ -46,11 +47,11 @@
 
 <script>
 import TestInput from "../components/ScoreInput.vue";
-import Reset from "../components/Reset";
+import NavBar from '../components/NavBar';
 export default {
   components: {
     "test-input": TestInput,
-    Reset,
+    NavBar
   },
   data() {
     return {
@@ -97,17 +98,18 @@ export default {
   justify-content: center;
   align-items: center;
   .scores {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
     max-width: 500px;
     width: 100%;
   }
-  h1 {
-    margin-bottom: 0.5em;
-    color: #fff;
-    text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.3);
-  }
+  
   ul {
     list-style: none;
+    h1 {
+          @include v.h1;
+          margin: .5em 0 .2em 0;
+
+    }
     li {
       @include v.li-tag;
     }

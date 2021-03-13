@@ -23,18 +23,14 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/variables' as v;
 #reset {
-    position: sticky;
-    top: 1em;
     height: 3em;
     width: 3em;
     z-index: 2;
     padding: .4em;
-    margin: 1em;
-    align-self: flex-end;
     background-color: v.$btn-color;
     border-radius: 5px;
-    box-shadow: 2px 2px 7px rgba($color: #000000, $alpha: 0.3),
-    -2px -2px 6px rgba($color: #bcfffb, $alpha: 0.5);
+    box-shadow: 2px 2px 7px rgba($color: #000000, $alpha: 0.2),
+    -2px -2px 7px rgba($color: #bcfffb, $alpha: 0.4);
     cursor: pointer;
 }
 </style>
