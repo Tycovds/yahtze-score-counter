@@ -90,8 +90,43 @@ export default {
 
 <style lang="scss">
 @use '../assets/scss/slider';
+@use '../assets/scss/variables' as v;
 .checkbox {
   height: 2.2em;
-  width: 2.2em;
+  width: 4.4em;
+  position: relative;
+
+
+  &::before {
+    content: "";
+    background-color: rgb(208, 215, 255);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    border-radius: 1em;
+    transition: background-color ease 400ms;
+  }
+    &:checked::before {
+        background-color: rgb(197, 255, 219);
+    }
+  &::after {
+    content: '';
+     background-color: v.$btn-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 3;
+    border-radius: 50%;
+    transition: transform 300ms ease;
+  }
+  &:checked::after {
+      transform: translateX(100%);
+  }
+  
 }
 </style>
