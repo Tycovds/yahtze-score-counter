@@ -1,8 +1,8 @@
 <template>
   <li>
     <div class="text">
-    <span> {{ data.val.title }} </span>
-    <p> {{data.val.desc}} </p>
+      <span> {{ data.val.title }} </span>
+      <p>{{ data.val.desc }}</p>
     </div>
     <div class="flex-wrapper">
       <!-- default -->
@@ -10,7 +10,6 @@
         <img
           @click="editing = true"
           class="btn edit"
-         
           src="../assets/edit.svg"
           alt="edit icon"
         />
@@ -20,17 +19,26 @@
         <button class="btn cross" @click="data.val.val = false">X</button>
 
         <input
+          v-if="data.val.step === data.val.max"
+          @change="onChange"
+          v-model="checkbox"
+          type="checkbox"
+          style="margin: 0 1em"
+          class="checkbox"
+        />
+        <input
+          v-else
           type="range"
           class="slider"
           v-model.number="score"
-          min="0" 
+          min="0"
           :max="data.val.max"
           :step="data.val.step"
         />
+
         <img
           @click="editing = false"
           class="btn checkmark"
-         
           src="../assets/checkmark.svg"
           alt="checkmark"
         />
@@ -51,7 +59,17 @@ export default {
   data() {
     return {
       editing: false,
+      checkbox: false,
     };
+  },
+  methods: {
+    onChange() {
+      if (this.checkbox) {
+        this.score = this.data.val.max;
+      } else {
+        this.score = 0;
+      }
+    },
   },
   computed: {
     score: {
@@ -72,8 +90,8 @@ export default {
 
 <style lang="scss">
 @use '../assets/scss/slider';
-@use '../assets/scss/variables' as v;
-li {
-    @include v.li-tag;
+.checkbox {
+  height: 2.2em;
+  width: 2.2em;
 }
 </style>
