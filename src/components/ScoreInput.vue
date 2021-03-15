@@ -1,6 +1,9 @@
 <template>
   <li>
+    <div class="text">
     <span> {{ data.val.title }} </span>
+    <p> {{data.val.desc}} </p>
+    </div>
     <div class="flex-wrapper">
       <!-- default -->
       <div v-if="!editing" class="flex">
@@ -20,7 +23,7 @@
           type="range"
           class="slider"
           v-model.number="score"
-          min="0"
+          min="0" 
           :max="data.val.max"
           :step="data.val.step"
         />

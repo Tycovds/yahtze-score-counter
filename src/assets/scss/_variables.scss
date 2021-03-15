@@ -10,6 +10,10 @@ $btn-color: #0038ae;
         background-color: #fff;
         border-radius: 5px;
         box-shadow: 2px 2px 7px rgba($color: #000000, $alpha: 0.3);
+
+        .text p {
+          font-size: 12px;
+        }
       
         .flex-wrapper {
           display: flex;
