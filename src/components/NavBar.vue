@@ -15,14 +15,11 @@ export default {
 <style lang="scss" >
 @use '../assets/scss/variables' as v;
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 5;
   width: 100%;
   display: grid;
   align-items: center;
   grid-template: auto / repeat(3, 1fr);
-  padding: .5em 1em;
+  padding: 0 1em;
   backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.1);
   #title {
