@@ -20,7 +20,6 @@ export default {
   align-items: center;
   grid-template: auto / repeat(3, 1fr);
   padding: 0 1em;
-  backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.1);
   #title {
     @include v.h1;

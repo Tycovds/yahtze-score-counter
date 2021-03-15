@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import {listTransition} from '../assets/globalFunctions';
 import TestInput from "../components/ScoreInput.vue";
 import NavBar from "../components/NavBar";
 export default {
@@ -92,6 +93,9 @@ export default {
         }, 0);
     },
   },
+  mounted(){
+    listTransition()
+  }
 };
 </script>
 

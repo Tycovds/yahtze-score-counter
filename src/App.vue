@@ -25,5 +25,6 @@ body {
        -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none;
+            overflow-x: hidden;
 }
 </style>

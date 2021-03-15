@@ -101,6 +101,7 @@ export default {
   width: 4.4em;
   position: relative;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   &::before {
     content: "";
@@ -132,5 +133,6 @@ export default {
   &:checked::after {
     transform: translateX(100%);
   }
+
 }
 </style>
