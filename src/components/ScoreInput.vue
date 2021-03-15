@@ -16,7 +16,7 @@
       </div>
       <!-- editing -->
       <div v-if="editing" class="flex">
-        <button class="btn cross" @click="data.val.val = false">X</button>
+        <button class="btn cross" @click="handleX">X</button>
 
         <input
           v-if="data.val.step === data.val.max"
@@ -70,6 +70,11 @@ export default {
         this.score = 0;
       }
     },
+    handleX() {
+      this.data.val.val = false;
+      this.editing = false;
+      this.checkbox = false;
+    },
   },
   computed: {
     score: {
@@ -95,7 +100,7 @@ export default {
   height: 2.2em;
   width: 4.4em;
   position: relative;
-
+  cursor: pointer;
 
   &::before {
     content: "";
@@ -109,12 +114,12 @@ export default {
     border-radius: 1em;
     transition: background-color ease 400ms;
   }
-    &:checked::before {
-        background-color: rgb(197, 255, 219);
-    }
+  &:checked::before {
+    background-color: rgb(197, 255, 219);
+  }
   &::after {
-    content: '';
-     background-color: v.$btn-color;
+    content: "";
+    background-color: v.$btn-color;
     position: absolute;
     top: 0;
     left: 0;
@@ -125,8 +130,7 @@ export default {
     transition: transform 300ms ease;
   }
   &:checked::after {
-      transform: translateX(100%);
+    transform: translateX(100%);
   }
-  
 }
 </style>
