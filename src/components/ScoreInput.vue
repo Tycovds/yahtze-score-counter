@@ -6,8 +6,8 @@
       <div v-if="!editing" class="flex">
         <img
           @click="editing = true"
-          class="btn"
-          id="edit"
+          class="btn edit"
+         
           src="../assets/edit.svg"
           alt="edit icon"
         />
@@ -26,8 +26,8 @@
         />
         <img
           @click="editing = false"
-          class="btn"
-          id="checkmark"
+          class="btn checkmark"
+         
           src="../assets/checkmark.svg"
           alt="checkmark"
         />

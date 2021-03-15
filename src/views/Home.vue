@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <nav-bar />
-    
+
+    <h1>Bovenste Helft</h1>
     <ul class="scores">
       <!-- top scores -->
-      <h1>Bovenste Helft</h1>
       <test-input
         v-for="(val, key) in topScores"
         :key="key"
@@ -15,43 +15,49 @@
         <span>Totaal aantal punten</span> <span>{{ totalTop }}</span>
       </li>
       <li>
-        <span>Bonus <em v-if="bonus < 35">({{totalTop}} / 63)</em> </span> <span>{{ bonus }}</span>
+        <span
+          >Bonus <em v-if="bonus < 35">({{ totalTop }} / 63)</em>
+        </span>
+        <span>{{ bonus }}</span>
       </li>
       <li>
-        <span>Totaal bovenste helft</span> <span>{{ totalTop + bonus}}</span>
+        <span>Totaal bovenste helft</span> <span>{{ totalTop + bonus }}</span>
       </li>
-      <h1>Onderste Helft</h1>
+    </ul>
+    <h1>Onderste Helft</h1>
+    <ul class="scores">
       <test-input
         v-for="(val, key) in bottomScores"
         :key="key"
         :data="{ val, key, half: 'bottom' }"
         class="input-wrapper"
       />
+    </ul>
 
-     
-      <!-- score totaal  generaal -->
-      <h1>Totaal </h1>
-       <li>
+    <!-- score totaal  generaal -->
+    <h1>Totaal</h1>
+    <ul class="scores">
+      <li>
         <span>Totaal onderste helft</span> <span>{{ totalBottom }}</span>
       </li>
-       <li>
+      <li>
         <span>Totaal bovenste helft</span> <span>{{ totalTop + bonus }}</span>
       </li>
-       <li>
-        <span>Totaal generaal</span> <span>{{ totalTop + bonus + totalBottom }}</span>
+      <li>
+        <span>Totaal generaal</span>
+        <span>{{ totalTop + bonus + totalBottom }}</span>
       </li>
-
     </ul>
   </div>
 </template>
 
 <script>
 import TestInput from "../components/ScoreInput.vue";
-import NavBar from '../components/NavBar';
+import NavBar from "../components/NavBar";
 export default {
   components: {
     "test-input": TestInput,
-    NavBar
+    NavBar,
   },
   data() {
     return {
@@ -62,7 +68,7 @@ export default {
     topScores() {
       return this.$store.state.scores.top;
     },
-    bonus(){
+    bonus() {
       return this.totalTop >= 63 ? 35 : 0;
     },
     bottomScores() {
@@ -102,14 +108,14 @@ export default {
     max-width: 500px;
     width: 100%;
   }
-  
+
+  h1 {
+    @include v.h1;
+    margin: 0.5em 0 0.2em 0;
+  }
   ul {
     list-style: none;
-    h1 {
-          @include v.h1;
-          margin: .5em 0 .2em 0;
 
-    }
     li {
       @include v.li-tag;
     }
